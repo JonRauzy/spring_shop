@@ -19,10 +19,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinTable (name = "order_item",
-      JoinColumns = @JoinColumn (name = "item_id"),
-      inverseJoinColums = @JoinColumns (name = "order_id")
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(
+            name = "order_item",
+            joinColumns = @JoinColumn(name = "item_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id")
     )
     private List<Item> items = new ArrayList<>();
 
