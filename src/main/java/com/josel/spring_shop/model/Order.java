@@ -6,14 +6,13 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "orders")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @ToString(exclude = "items")
-@Entity
-@Table(name = "orders")
 public class Order {
 
     @jakarta.persistence.Id
@@ -22,10 +21,9 @@ public class Order {
 
     @ManyToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinTable (name = "order_item",
-    JoinColumns = @JoinColumn (name = "item_id"),
-    inverseJoinColums = @JoinColumns (name = "order_id"))
+      JoinColumns = @JoinColumn (name = "item_id"),
+      inverseJoinColums = @JoinColumns (name = "order_id")
+    )
     private List<Item> items = new ArrayList<>();
-
-
 
 }
