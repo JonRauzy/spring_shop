@@ -2,5 +2,5 @@ package com.josel.spring_shop.model;
 
 import jakarta.persistence.Entity;
 
-public class Item {
+public class Order {
 }
