@@ -1,4 +1,6 @@
 package com.josel.spring_shop.repository;
 
-public class ItemRepository {
-}
+import com.josel.spring_shop.model.Item;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ItemRepository extends JpaRepository<Item, Long> {}
