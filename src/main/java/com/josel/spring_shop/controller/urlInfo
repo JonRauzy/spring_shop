@@ -1,0 +1,48 @@
+
+| Endpoint | URL |
+|---|---|
+| Home | `http://localhost:8080/` |
+| All items | `http://localhost:8080/item` |
+| Single item | `http://localhost:8080/item/1` |
+| All orders | `http://localhost:8080/order` |
+| Single order | `http://localhost:8080/order/1` |
+
+
+Here are all the URLs:
+
+---
+
+### Items
+| Method | URL | Body |
+|---|---|---|
+| GET | `http://localhost:8080/item` | — |
+| GET | `http://localhost:8080/item/1` | — |
+| POST | `http://localhost:8080/item` | `{"name": "Pen", "quantity": 5}` |
+| PUT | `http://localhost:8080/item/1` | `{"name": "Pen Updated", "quantity": 10}` |
+| DELETE | `http://localhost:8080/item/1` | — |
+
+---
+
+### Orders
+| Method | URL | Body |
+|---|---|---|
+| GET | `http://localhost:8080/order` | — |
+| GET | `http://localhost:8080/order/1` | — |
+| POST | `http://localhost:8080/order` | see below |
+| PUT | `http://localhost:8080/order/1` | see below |
+| DELETE | `http://localhost:8080/order/1` | — |
+
+---
+
+### Order POST/PUT body
+```json
+{
+  "items": [
+    { "name": "Baz", "quantity": 10 },
+  ]
+}
+```
+
+---
+
+Replace `/1` with the actual ID you get back from your POST responses.
